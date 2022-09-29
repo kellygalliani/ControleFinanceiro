@@ -8,11 +8,71 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <meta name="description" content="Control Finance - Seu controle financeiro">
     <link rel="stylesheet" href="/styles/globalStyles.css">
+    <link rel="stylesheet" href="../../styles/modal.css">
+    <link rel="stylesheet" href="../../styles/buttons.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+    <link rel="stylesheet" href="../../styles/texts.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <main id="app"></main>
-    <script src="/scripts/modal.js"></script>
+    <header class="navbar">
+    <nav class="container navbar-items" >
+        <h1><span class=".logo_first_Word">Control</span> Finance</h1>
+        <button class="newValue button_register_value" data-modal-control="insert-value">Registrar novo valor</button>
+    </nav>
+    </header>
+    <main id="app" class="container" >
+        <section class="Sec_filters">
+            <h2 class="title2">Resumo financeiro</h2>
+            <div class="filters_buttons">
+                <button class="button_outline">Todos</button>
+                <button class="button_outline">Entradas</button>
+                <button class="button_outline">Saídas</button>
+            </div>
+        </section>
+        <section class="Sec_sumValues">
+            <h3 class="text1">Soma dos valores</h3>
+            <p id="totalValue" class="text1"></p>
+        </section>
+        <section class="Sec_cardsList">
+            <a class="empty_sec" data-modal-control="insert-value">
+                <h2 class="title2">Nenhum valor cadastrado</h2>
+                <p class="text1">Registrar novo valor</p>
+            </a>
+            <ul>
+                <!-- <li class="li_value">
+                    <h3 class="text1">R$ 40,00</h3>
+                    <div class="li_buttons">
+                        <button class="button_tag">Entrada</button>
+                        <img src="../../assets/trash.svg" alt="" class="trash">
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </main>
+    <!-- MODAL -->
+    <div id="insert-value" class="modal">
+            <div class="modalContainer">
+                <div class="modalHeader">
+                    <h2 class="title1">Registro de valor</h2>
+                    <button class="close_modal show-modal title2" data-modal-control="insert-value">X</button>
+                </div>
+                <p class="modal_description text2">Digite o valor e em seguida aperte no botão referente ao tipo do valor.</p>
+                <form class="modal_form_box">
+                    <p class="text1" for="">Valor</p>
+                    <input id="input_form" type="number" title="Valor" placeholder="00,00" required>
+                    <p class="text1 modal_label2">Tipo de Valor</p>
+                    <button id="1" type="submit">Entrada</button>
+                    <button id="2" type="submit">Saída</button>
+                    <div class="formFooter">
+                        <button class=" button_greylow show-modal" data-modal-control="insert-value">Cancelar</button>
+                        <button id="bt_insert" class="button_register_modal bt_insert">Inserir valor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <script src="../../scripts/modal.js"></script>
+    <script src="../../scripts/IncremetarPreço.js"></script>
     <script src="valuesData.js"></script>
     <script src="index.js"></script>
 </body>

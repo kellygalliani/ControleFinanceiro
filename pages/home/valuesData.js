@@ -17,3 +17,9 @@ let insertedValues = [
     categoryID: 1,
   },
 ];
+
+/* const filter = insertedValues.filter(value) => {
+
+} */
+
+let insertedValuesfiltered = [];
