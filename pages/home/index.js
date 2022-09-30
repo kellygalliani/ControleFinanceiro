@@ -1,58 +1,52 @@
 //RENDER DADOS DO ARRAY EM TELA
-const ulListCards = document.querySelector("ul")
 
-function listCards (lista, referenciaHtml){
-    
-    referenciaHtml.innerHTML =""
+const createCard = (card) =>{
+    const {id, value, categoryID} = card
 
-    //PERCORRENDO CARDS 
-    for(let i = 0; i < lista.length; i++){
-        
-        //ACESSANDO CARDS
-        let cards = lista[i]
-  
-        //CRIANDO TEMPLATE --> LI
-        let template = criarTemplateCard(cards)
-  
-        //JOGANDO TEMPLATE NA INTERFACE
-        referenciaHtml.appendChild(template)
-    }
-  }
-  
-  listCards (insertedValues, ulListCards)
-
-function criarTemplateCard(cards){
-
-    //criando as tags template
     let tagLi = document.createElement("li")
-    let tagValue = document.createElement("h3")
-    let tagDivLi = document.createElement("div")
-    let tagTag = document.createElement("button")
-    let tagImgTrash= document.createElement("img")
-
-    //adicionando classes
-    tagLi.classList.add(`${cards.id}`)
+    tagLi.classList.add(`${id}`)
     tagLi.classList.add("li_value")
-    tagValue.classList.add("text1")
-    tagDivLi.classList.add("li_buttons")
-    tagTag.classList.add("button_tag")
-    tagImgTrash.classList.add("trash")
 
-    //alimentando tags
-    tagValue.innerText = `R$ ${cards.value}`
-    if(cards.categoryID === 1){
+    let tagValue = document.createElement("h3")
+    tagValue.classList.add("text1")
+    tagValue.innerText = `R$ ${value}`
+
+    let tagDivLi = document.createElement("div")
+    tagDivLi.classList.add("li_buttons")
+
+    let tagTag = document.createElement("button")
+    tagTag.classList.add("button_tag")
+    if(categoryID === 1){
         tagTag.innerText = "Entrada"
     } else{
         tagTag.innerText = "Saída"
     }
+
+    let tagImgTrash= document.createElement("img")
+    tagImgTrash.classList.add("trash")
     tagImgTrash.src = "../../assets/trash.svg"
 
-    //append
     tagLi.append(tagValue, tagDivLi)
     tagDivLi.append(tagTag, tagImgTrash)
 
     return tagLi
 }
+
+const renderCards = (list) =>{
+    
+    const ulListCards = document.querySelector("ul")
+
+    ulListCards.innerHTML =""
+
+    list.forEach((card) =>{
+        const cardCreated = createCard(card)
+        ulListCards.appendChild(cardCreated)
+    })
+}
+
+renderCards(insertedValues)
+
+
 
 //ATUALIZAR A SOMA DOS VALORES
 /* function incrementarSoma (){}

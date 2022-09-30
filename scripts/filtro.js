@@ -1,6 +1,6 @@
 let insertedValuesfiltered = [];
 
-const buttonEntradaFilter = document.getElementById("1")
+const buttonEntradaFilter = document.getElementById("entry")
 
 buttonEntradaFilter.addEventListener("click" ((insertedValues)=>{
     
@@ -14,7 +14,7 @@ buttonEntradaFilter.addEventListener("click" ((insertedValues)=>{
 }))
 
 
-const buttonSaidaFilter = document.getElementById("2")
+const buttonSaidaFilter = document.getElementById("output")
 const filterSaida = insertedValues.filter((value) => {
     if (value.categoryID === 2){
         insertedValuesfiltered.push(value)
