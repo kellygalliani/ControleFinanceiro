@@ -18,7 +18,7 @@
     <header class="navbar">
     <nav class="container navbar-items" >
         <h1><span class="logo_first_Word">Control</span> <span class="logo_second_Word">Finance</span></h1>
-        <button class="newValue button_register_value" data-modal-control="insert-value">Registrar novo valor</button>
+        <button class="newValue button_register_value open_modal" data-modal-control="insert-value">Registrar novo valor</button>
     </nav>
     </header>
     <main id="app" class="container" >
@@ -58,7 +58,7 @@
                     <button class="close_modal show-modal title2" data-modal-control="insert-value">X</button>
                 </div>
                 <p class="modal_description text2">Digite o valor e em seguida aperte no botão referente ao tipo do valor.</p>
-                <form class="modal_form_box">
+                <div class="modal_form_box">
                     <p class="text1" for="">Valor</p>
                     <input id="input_form" type="number" title="Valor" placeholder="R$ 00,00" required>
                     <p class="text1 modal_label2">Tipo de Valor</p>
@@ -68,7 +68,7 @@
                         <button class=" button_greylow show-modal" data-modal-control="insert-value">Cancelar</button>
                         <button id="bt_insert" class="button_register_modal bt_insert">Inserir valor</button>
                     </div>
-                </form>
+                </div>
             </div>
     </div>
     <script src="valuesData.js"></script>

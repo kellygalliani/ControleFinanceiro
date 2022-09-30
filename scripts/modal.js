@@ -1,13 +1,13 @@
 //CRIAR MODAL
-const buttonOpenModal = document.querySelectorAll("[data-modal-control]");
+const buttonOpenModal = document.querySelector(".open_modal");
+console.log(buttonOpenModal)
 
-buttonOpenModal.forEach((button)=>{
-    button.addEventListener ("click", function () {
+buttonOpenModal.addEventListener ("click", function () {
         
-        const modalId = button.getAttribute("data-modal-control");
+        const modalId = buttonOpenModal.getAttribute("data-modal-control");
         document.getElementById(modalId).classList.toggle("show-modal");
-        
-        const id = insertedValues.length + 2;
+
+        const id = insertedValues.length + 1;
         const botaoEntrada = document.getElementById("1");
         const botaoSaida = document.getElementById("2");
         let resultBotao = 0;
@@ -26,19 +26,19 @@ buttonOpenModal.forEach((button)=>{
             event.preventDefault();
 
             const value = document.getElementById("input_form").value;
-
+            
             insertedValues.push({
                 id: id,
                 value: value,
                 categoryID: resultBotao,
             });
+            console.log(insertedValues)
             
             renderCards(insertedValues)
             document.getElementById(modalId).classList.remove("show-modal");
             //incrementarPreco (insertedValues);
         });
-    })
-})
+    }) 
 
 /* for (let i = 0; i < buttonOpenModal.length; i++) {
 
@@ -77,7 +77,7 @@ buttonOpenModal.forEach((button)=>{
             //incrementarPreco (insertedValues);
         });
     })
-} */
+}  */
 
 /* function createTemplateModal(){
 
