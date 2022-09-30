@@ -1,3 +1,8 @@
+.logo_first_Word{
+    color: var(--color-brand-1);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-1);
+}
 .title1{
     color: var(--color-grey-2);
     font-size: var(--font-size-1);
