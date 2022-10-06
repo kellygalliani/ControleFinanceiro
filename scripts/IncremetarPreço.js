@@ -1,7 +1,12 @@
 let totalPreco = 0
-let totalValue = document.getElementById("#totalValue")
+let totalValue = document.getElementById("totalValue")
 
-const valuesSum = insertedValues.value.reduce((previousValue, currentValue) =>{
-   totalPreco = previousValue + currentValue
-   return totalValue.innerText = `R$ ${totalPreco}`
-})
+function atualizarTotal (){
+
+const valuesSum = insertedValues.reduce((previousValue, currentValue) =>{
+   
+   return previousValue + currentValue.value
+}, 0)
+
+   totalValue.innerText = `R$ ${valuesSum}`
+}

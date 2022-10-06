@@ -1,6 +1,6 @@
 //RENDER DADOS DO ARRAY EM TELA
 
-const createCard = (card) =>{
+const createCard = (card, list) =>{
     const {id, value, categoryID} = card
 
     let tagLi = document.createElement("li")
@@ -21,10 +21,17 @@ const createCard = (card) =>{
     } else{
         tagTag.innerText = "Saída"
     }
-
+    
     let tagImgTrash= document.createElement("img")
     tagImgTrash.classList.add("trash")
     tagImgTrash.src = "../../assets/trash.svg"
+
+    tagImgTrash.addEventListener("click", (event)=>{
+        list.splice(event, 1)
+        tagLi.remove()
+        atualizarTotal()
+        empty(list)
+    })
 
     tagLi.append(tagValue, tagDivLi)
     tagDivLi.append(tagTag, tagImgTrash)
@@ -33,33 +40,33 @@ const createCard = (card) =>{
 }
 
 const renderCards = (list) =>{
-    
-    const ulListCards = document.querySelector("ul")
 
-    ulListCards.innerHTML =""
+    const ulListCards = document.querySelector("ul")
+    console.log(list)
+
+    ulListCards.innerHTML = ""
 
     list.forEach((card) =>{
-        const cardCreated = createCard(card)
+        const cardCreated = createCard(card, list)
         ulListCards.appendChild(cardCreated)
+        
     })
+    empty(list)
+    atualizarTotal ()
 }
 
 renderCards(insertedValues)
 
+function empty (list){
 
+    let divEmpty = document.querySelector(".empty_sec")
 
-//ATUALIZAR A SOMA DOS VALORES
-/* function incrementarSoma (){}
-function decrementarSoma (){} */
+    if(list.length){
+        divEmpty.classList.add("hidden")
+    } else {
+        console.log(list)
+        divEmpty.classList.remove("hidden")
+    }
+}
 
-//FILTROS
-/* filtrar os dados a partir do ID passado como argumento e 
-atualizar o array's de objetos insertedValuesfiltered */
-
-/* function filter (){
-    //OUVIR O CLIQUE E VER O ID do botão - se é 0 ou 1
-    //COMPARAR COM A FUNÇÃO valuesCategory
-    //ENVIAR OS ITENS COM DO ARRAY QUE SÃO 0 ou 1 para dentro do insertedValuesfiltered
-    //RENDERIZAR OS ITENS DO insertedValuesfiltered
-
-} */
+empty(insertedValues)

@@ -1,37 +1,43 @@
-let insertedValuesfiltered = [];
 
 const buttonEntradaFilter = document.getElementById("entry")
+const ulListCards = document.querySelector("ul")
 
-buttonEntradaFilter.addEventListener("click" ((insertedValues)=>{
+function filter (){
+
+    //chamar todos os botões do filtro
+    const filterButtons = document.querySelectorAll(".button_outline")
     
-    insertedValues.filter((value) => {
-    if (value.categoryID === 1){
+    filterButtons.forEach(button => {
+        button.addEventListener("click", ()=> {
+            ulListCards.innerHTML = ""
+            
+            const buttonTextFilter = button.innerText
+            
+            if(buttonTextFilter === "Todos"){
+                return renderCards(insertedValues)
+            }
+            
+                const filteredProducts = filterProduct(buttonTextFilter, insertedValues)
+                return renderCards(filteredProducts)
 
-        insertedValuesfiltered.push(value)
-    }
-    return listCards (insertedValuesfiltered, ulListCards)
-})
-}))
+        } )
+    })
+}
 
+function filterProduct(buttonText, array){
 
-const buttonSaidaFilter = document.getElementById("output")
-const filterSaida = insertedValues.filter((value) => {
-    if (value.categoryID === 2){
-        insertedValuesfiltered.push(value)
+    if(buttonText === "Entradas"){
         
+        let entryFilter = array.filter((product) => {
+            let category = product.categoryID === 1
+            return category 
+        })
+        return entryFilter 
+
+    } else if(buttonText === "Saídas"){
+        let outPutFilter = array.filter(product => product.categoryID === 2)
+        return outPutFilter
     }
-    return listCards (insertedValuesfiltered, ulListCards)
-})
-
-const buttonTodosFilter = document.getElementById("all")
-const filterTodos = insertedValues.filter((value) => {
-    if (value.categoryID === 1 || 2){
-        insertedValuesfiltered.push(value)
-        
-        
-    }
-    return listCards (insertedValuesfiltered, ulListCards)
-})
-
-
-//Como remover os outros que não são entrada?
+    
+}
+filter ()
