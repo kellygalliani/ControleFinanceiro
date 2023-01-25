@@ -64,7 +64,6 @@ function empty (list){
     if(list.length){
         divEmpty.classList.add("hidden")
     } else {
-        console.log(list)
         divEmpty.classList.remove("hidden")
     }
 }
