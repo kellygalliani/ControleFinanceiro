@@ -24,7 +24,7 @@ const createCard = (card, list) =>{
     
     let tagImgTrash= document.createElement("img")
     tagImgTrash.classList.add("trash")
-    tagImgTrash.src = "../../assets/trash.svg"
+    tagImgTrash.src = "./assets/trash.svg"
 
     tagImgTrash.addEventListener("click", (event)=>{
         list.splice(event, 1)
